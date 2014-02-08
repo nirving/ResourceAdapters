@@ -1,0 +1,5 @@
+<?xml version = "1.0"?>
+<weblogic-connector xmlns="http://www.bea.com/ns/weblogic/90">
+	<jndi-name>FileRA</jndi-name>
+	<enable-access-outside-app>false</enable-access-outside-app>
+</weblogic-connector>

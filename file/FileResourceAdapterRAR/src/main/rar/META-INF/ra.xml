@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/connector_1_5.xsd"
+	version="1.5">
+	<display-name>File JCA Resource Adapter</display-name>
+	<vendor-name>Blue mountain international</vendor-name>
+	<eis-type>File Server</eis-type>
+	<resourceadapter-version>1.0</resourceadapter-version>
+	<resourceadapter>
+		<resourceadapter-class>com.blu.jca.file.FileResourceAdapter</resourceadapter-class>
+		<inbound-resourceadapter>
+			<messageadapter>
+				<messagelistener>
+					<!--<messagelistener-type>javax.resource.cci.MessageListener</messagelistener-type> -->
+					<messagelistener-type>com.blu.jca.file.FileMessageListener</messagelistener-type>
+					<activationspec>
+						<activationspec-class>com.blu.jca.file.FileActivationSpec</activationspec-class>
+						<required-config-property>
+							<config-property-name>filePath</config-property-name>
+						</required-config-property>
+						<required-config-property>
+							<config-property-name>fileExt</config-property-name>
+						</required-config-property>
+						<required-config-property>
+							<config-property-name>pollingInterval</config-property-name>
+						</required-config-property>
+					</activationspec>
+				</messagelistener>
+			</messageadapter>
+		</inbound-resourceadapter>
+	</resourceadapter>
+</connector>
